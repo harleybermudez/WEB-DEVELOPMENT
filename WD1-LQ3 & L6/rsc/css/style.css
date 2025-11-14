@@ -1,0 +1,62 @@
+bodbody {
+
+background-color: #000000;
+
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+line-height: 1.6;
+
+color: #ffffff; 
+}
+
+h1, h2, h3, h4, .display-1, .display-4 {
+font-weight: 600;
+letter-spacing: -0.02em;
+color: #1d1d1f;
+}
+.navbar-dark .navbar-nav .nav-link,
+.navbar-dark .navbar-brand {
+color: #ffffff !important; 
+}
+
+.bg-dark {
+background-color: #000000 !important;
+}
+
+.text-primary {
+color: #0070c9 !important;
+}
+
+.btn-dark {
+border-radius: 999px;
+padding: 10px 25px;
+font-weight: 500;
+}
+
+
+section img {
+border-radius: 12px;
+margin-top: 20px;
+box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+.featurette-divider {
+border: none;
+height: 1px;
+background-color: #e0e0e0;
+margin: 60px 0;
+}
+
+.list-group-item {
+border-color: #e0e0e0;
+}
+
+.table {
+--bs-table-striped-bg: #fafafa;
+}
+
+.table-dark {
+--bs-table-bg: #000000;
+}
+.navbar-dark .navbar-toggler-icon {
+filter: invert(1);
+}
