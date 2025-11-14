@@ -57,6 +57,3 @@ border-color: #e0e0e0;
 .table-dark {
 --bs-table-bg: #000000;
 }
-.navbar-dark .navbar-toggler-icon {
-filter: invert(1);
-}
