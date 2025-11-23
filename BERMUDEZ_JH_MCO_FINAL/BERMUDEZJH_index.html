@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dance World - Folk Dance</title>
+    <link rel="stylesheet" href="rsc/css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">    
+    <style>
+        :root {
+            --primary-accent: #ff2e63; 
+            --secondary-accent: #08d9d6; 
+            --secondary-color: #0d1117; 
+            --text-color: #f0f6fc; 
+            --bg-dark: #050505;
+        }
+        
+        body {  
+             background-color: var(--bg-dark);
+            color: var(--text-color);
+            font-family: 'Roboto', sans-serif;
+            padding-top: 70px;
+        }
+
+    
+
+        .page-section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2, .section-header h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: var(--text-color);
+            text-transform: uppercase;
+        }
+
+       
+        .accordion-button {
+            border: none !important;
+        }
+        .accordion-button:not(.collapsed) {
+            color: var(--primary-accent) !important;
+            background-color: rgba(255, 111, 0, 0.1) !important;
+            box-shadow: none;
+        }
+        .accordion-button:focus {
+            box-shadow: none;
+            border: none;
+        }
+
+        
+        .classification-card {
+            background: #1c1c2e;
+            border: 2px solid var(--primary-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .classification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .classification-card .card-body {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .classification-card .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--primary-accent);
+        }
+
+       
+        .card-custom {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+        }
+        .card-custom:hover {
+            box-shadow: 0 8px 15px rgba(255, 111, 0, 0.3);
+            transform: translateY(-5px);
+        }
+        .card-img-wrapper {
+            height: 250px;
+            overflow: hidden;
+        }
+        .card-custom img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .card-custom:hover img {
+            transform: scale(1.05);
+        }
+        .card-custom .btn-outline-light {
+            border-color: var(--primary-accent);
+            color: var(--primary-accent);
+        }
+        .card-custom .btn-outline-light:hover {
+            background-color: var(--primary-accent);
+            color: var(--secondary-color);
+        }
+
+       
+        .modal-content {
+            background-color: var(--secondary-color);
+            border: 2px solid var(--primary-accent);
+            border-radius: 12px;
+        }
+        .modal-header, .modal-footer {
+            background-color: #000;
+        }
+        .modal-title {
+            color: var(--primary-accent);
+        }
+
+    </style>
+</head>
+<body class="m-0 p-0">
+     <nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
+  <a class="navbar-brand d-flex align-items-center">
+    <h1 class="fw-bold">Folk Dance</h1>
+  </a>
+
+  <div class="ms-auto d-flex align-items-center">
+    <span class="text-dark me-2 display-6">John Harley Bermudez</span>
+    <img 
+      src="BERMUDEZJH_media/images/9fe330f9-c59b-4870-9a0c-fe43d459e22e.jpg" 
+      class="rounded-circle border-dark border " 
+      style="width:90px; height:90px;">
+  </div>
+</nav>
+
+
+    <div class="page-section active">
+        <div class="container pt-5">
+            
+          
+            <div class="section-header">
+                <h2>DEVELOPMENT OF FOLK DANCES IN THE WORLD</h2>
+                <p class="lead">The universal language of the common people across history.</p>
+            </div>
+
+            <div class="row mb-5 align-items-center">
+                <div class="col-lg-6">
+                    <div class="mb-4 " style="height: 600px;">
+                        <img src="BERMUDEZJH_media/images/globe.png" 
+                             alt="Global Folk History" 
+                             class="w-100 h-100 object-fit-cover">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="accordion" id="globalHistoryAccordion">
+                       
+                        <div class="accordion-item bg-dark border-secondary text-white">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button bg-dark text-white fw-bold shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                    <i class="fas fa-seedling me-3 text-success"></i> Ancient Roots & Rituals
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#globalHistoryAccordion">
+                                <div class="accordion-body ">
+                                    Folk dance is the oldest form of dance, predating written history. In ancient civilizations (Egypt, Greece, India), dance was a sacred ritual used to communicate with gods, ensure fertility, and prepare for war. It was communal, inclusive, and essential for social bonding.
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="accordion-item bg-dark border-secondary text-white">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed bg-dark text-white fw-bold shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                    <i class="fas fa-chess-rook me-3 text-primary"></i> The Middle Ages: Peasant vs. Court
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#globalHistoryAccordion">
+                                <div class="accordion-body ">
+                                    As societies stratified, a divide emerged. The aristocracy developed refined "Court Dances" (like the Minuet), while the common people (the "Folk") continued to practice vigorous, earthy dances like the Maypole and Chain Dances. These were performed at village fairs, weddings, and seasonal festivals.
+                                </div>
+                            </div>
+                        </div>
+                     
+                        <div class="accordion-item bg-dark border-secondary text-white">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed bg-dark text-white fw-bold shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                    <i class="fas fa-flag me-3 text-danger"></i> 19th Century: Romantic Nationalism
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#globalHistoryAccordion">
+                                <div class="accordion-body ">
+                                    During the Industrial Revolution, nations feared losing their identity. This sparked "Romantic Nationalism," where scholars (like Cecil Sharp in England) traveled to villages to record steps and music. Folk dance became a symbol of national pride and political identity for countries like Poland (Mazurka), Hungary (Czardas), and Spain (Flamenco).
+                                </div>
+                            </div>
+                        </div>
+                         
+                         <div class="accordion-item bg-dark border-secondary text-white">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed bg-dark text-white fw-bold shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                    <i class="fas fa-globe me-3 text-info"></i> 20th Century to Present
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#globalHistoryAccordion">
+                                <div class="accordion-body">
+                                    Today, folk dance is preserved through international organizations like CIOFF. It has evolved from a daily village activity into a performative art form ("Stage Folk Dance"), showcased in massive festivals to promote cross-cultural understanding and tourism.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-secondary my-5">
+
+          
+            <div class="section-header mt-5">
+                <h2>PHILIPPINE FOLK DANCE</h2>
+                <p class="lead ">A rich tapestry of history, religion, and geography woven into movement.</p>
+            </div>
+            
+           
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="p-5 bg-dark border border-secondary shadow-lg">
+                        <h3 class="mb-5 text-uppercase text-white border-bottom border-danger pb-2" style="width:fit-content">Historical Evolution</h3>
+                        <div class="row g-5">
+                         
+                            <div class="col-lg-4">
+                                
+                                <div class="mb-4 overflow-hidden rounded border border-secondary" style="height: 200px;">
+                                    <img src="BERMUDEZJH_media/images/pre.jpg" 
+                                         alt="Pre-colonial Dance" 
+                                         class="w-100 h-100 object-fit-cover">
+                                </div>
+                                <h4 class="text-danger fw-bold mb-3"><i class="fas fa-fire me-2"></i> Pre-colonial Era</h4>
+                                <p class="text-light small mb-2"><strong>The Roots of Animism</strong></p>
+                                <p >Before foreign influence, dance was intrinsically linked to the spiritual and daily life of the tribes. It was not merely entertainment but a necessity—a medium to appease the Gods, ask for rain, or thank the spirits for a bountiful harvest.</p>
+                                <p class="text-light small mb-2"><strong>Mimicking Nature</strong></p>
+                                <p >Movements were often derived from the environment. Dances mimicked the flight of birds, the swaying of trees, and the movements of animals, serving as a way for the community to bond and tell stories of the hunt or war.</p>
+                            </div>
+
+                            
+                            <div class="col-lg-4">
+                                 <!-- Image Placeholder -->
+                                 <div class="mb-4 overflow-hidden rounded border border-secondary" style="height: 200px;">
+                                    <img src="BERMUDEZJH_media/images/spanish.webp" 
+                                         alt="Spanish Era Dance" 
+                                         class="w-100 h-100 object-fit-cover">
+                                </div>
+                                <h4 class="text-danger fw-bold mb-3"><i class="fas fa-cross me-2"></i> Spanish Colonial Era</h4>
+                                <p class="text-light small mb-2"><strong>East Meets West</strong></p>
+                                <p>The arrival of Spaniards in the 16th century brought Christianity and European culture. This created a unique fusion where indigenous steps were blended with the grace and etiquette of European court dances.</p>
+                                <p class="text-light small mb-2"><strong>The Maria Clara Tradition</strong></p>
+                                <p >A new category of "Maria Clara" dances emerged, revolving around courtship, modesty, and Christianity. The clothing evolved into the Barong Tagalog and the Terno, and music incorporated Spanish guitars and rondallas.</p>
+                            </div>
+
+                           
+                            <div class="col-lg-4">
+                                
+                                 <div class="mb-4 overflow-hidden rounded border border-secondary" style="height: 200px;">
+                                    <img src="BERMUDEZJH_media/images/american.jpg" 
+                                         alt="American Era" 
+                                         class="w-100 h-100 object-fit-cover">
+                                </div>
+                                <h4 class="text-danger fw-bold mb-3"><i class="fas fa-star me-2"></i> American Era & Modernity</h4>
+                                <p class="text-light small mb-2"><strong>Commercialization & Jazz</strong></p>
+                                <p class="">In 1898, the American occupation introduced commercial entertainment, vaudeville, and new musical styles. While modernization threatened traditional practices, it also opened the Philippines to global culture.</p>
+                                <p class="text-light small mb-2"><strong>Preservation & Nationalism</strong></p>
+                                <p >The most significant development came after World War II. As a reaction to rapid westernization, there was a strong movement to document and preserve ancient folk dances, transforming them into symbols of national pride and identity.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-secondary my-5">
+
+            <div class="section-header mt-5">
+                <h3>CLASSIFICATION OF PHILIPPINE FOLK DANCES</h3>
+                <p>Dances are categorized by location, theme, and cultural influence, revealing the complexity of Filipino heritage.</p>
+            </div>
+            
+            <div class="row g-4 mb-5">
+                
+                <div class="col-sm-6 col-lg-4">
+                    <div class="classification-card">
+                        <img src="BERMUDEZJH_media/images/pandanggo.jpg" 
+                             class="card-img-top" 
+                             alt="National Dances Placeholder">
+                        <div class="card-body">
+                            <h5 class="card-title text-info">National Folk Dances</h5>
+                            <p class="card-text  small">Dances performed throughout the Philippines, representing the shared traditions and identity of the Filipino people.</p>
+                            <p class="text-white small mb-0 fw-bold">Example: Cariñosa, Pandanggo sa Ilaw, Rigodon</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-4">
+                    <div class="classification-card">
+                        <img src="BERMUDEZJH_media/images/regional.jpg" 
+                             class="card-img-top" 
+                             alt="Regional Dances Placeholder">
+                        <div class="card-body">
+                            <h5 class="card-title text-success">Regional Folk Dances</h5>
+                            <p class="card-text  small">Specific to certain provinces or localities, reflecting the unique traditions and way of life of the people from that region.</p>
+                            <p class="text-white small mb-0 fw-bold">Example: Tinikling (Leyte), Singkil (Maranao), Maglalatik (Laguna)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-4">
+                    <div class="classification-card">
+                        <img src="BERMUDEZJH_media/images/ritual.jpg" 
+                             class="card-img-top" 
+                             alt="Ritual Dances Placeholder">
+                        <div class="card-body">
+                            <h5 class="card-title text-danger">Religious or Ritual Dances</h5>
+                            <p class="card-text  small">Performed as part of spiritual ceremonies and beliefs, used to honor deities or ask for good fortune.</p>
+                            <p class="text-white small mb-0 fw-bold">Example: Subli (Batangas), Dugso (Bukidnon)</p>
+                        </div>
+                    </div>
+                </div>
+
+           
+                <div class="col-sm-6 col-lg-4">
+                    <div class="classification-card">
+                        <img src="BERMUDEZJH_media/images/courtship.jpg" 
+                             class="card-img-top" 
+                             alt="Courtship Dances Placeholder">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">Courtship Dances</h5>
+                            <p class="card-text  small">Depict the romantic relationships between men and women, often involving playful gestures and symbolic actions that express affection.</p>
+                            <p class="text-white small mb-0 fw-bold">Example: Kuratsa, Pantomina, Rogelia</p>
+                        </div>
+                    </div>
+                </div>
+                
+            
+                <div class="col-sm-6 col-lg-4">
+                    <div class="classification-card">
+                        <img src="BERMUDEZJH_media/images/wedding.jpg" 
+                             class="card-img-top" 
+                             alt="Wedding Dances Placeholder">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Wedding Dances</h5>
+                            <p class="card-text  small">Performed during marriage celebrations, symbolizing joy, unity, and the blessings of the community for the newlywed couple.</p>
+                            <p class="text-white small mb-0 fw-bold">Example: Lulay, Soryano</p>
+                        </div>
+                    </div>
+                </div>
+                
+          
+                <div class="col-sm-6 col-lg-4">
+                    <div class="classification-card">
+                        <img src="BERMUDEZJH_media/images/festival.jpg" 
+                             class="card-img-top" 
+                             alt="Festival Dances Placeholder">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Festival Dances</h5>
+                            <p class="card-text  small">Joyful performances that celebrate community life, good harvests, and religious feasts. They feature vibrant costumes and energetic movements.</p>
+                            <p class="text-white small mb-0 fw-bold">Example: Sayaw sa Bangko, Pahiyas Festival Dances</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-4">
+                    <div class="classification-card">
+                        <img src="BERMUDEZJH_media/images/occupational.jpg" 
+                             class="card-img-top" 
+                             alt="Occupational Dances Placeholder">
+                        <div class="card-body">
+                            <h5 class="card-title text-info">Occupational Dances</h5>
+                            <p class="card-text  small">Portray the everyday work, livelihood, or industry of the people, showing how Filipinos celebrate their labor through rhythm and movement.</p>
+                            <p class="text-white small mb-0 fw-bold">Example: Pangisda, Pagtatahip</p>
+                        </div>
+                    </div>
+                </div>
+                
+                 
+                <div class="col-sm-6 col-lg-4">
+                    <div class="classification-card">
+                        <img src="BERMUDEZJH_media/images/war.jpg" 
+                             class="card-img-top" 
+                             alt="War Dances Placeholder">
+                        <div class="card-body">
+                            <h5 class="card-title text-danger">War Dances</h5>
+                            <p class="card-text  small">Dramatize the courage, strength, and heroism of warriors preparing for or celebrating victory in battle.</p>
+                            <p class="text-white small mb-0 fw-bold">Example: Sagayan (Maranao), Igorot War Dance</p>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="col-sm-6 col-lg-4">
+                    <div class="classification-card">
+                        <img src="BERMUDEZJH_media/images/imitative.jpg" 
+                             class="card-img-top" 
+                             alt="Imitative Dances Placeholder">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">Imitative Dances</h5>
+                            <p class="card-text  small">Mimic the movements of animals, plants, or natural elements, showing the close connection between people and their environment.</p>
+                            <p class="text-white small mb-0 fw-bold">Example: Itik-Itik (duck), Tinikling (tikling bird)</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <h3 class="mb-4 mt-5 text-uppercase text-white">Famous Regional Dances</h3>
+            <div class="row g-4">
+     
+                <div class="col-md-4">
+                    <div class="card-custom">
+                        <div class="card-img-wrapper">
+                            <video id="tiklosVideo" class="w-100 h-100" style="object-fit:cover" poster="BERMUDEZJH_media/images/tinikling.gif" controls muted preload="metadata">
+                                <source src="BERMUDEZJH_media/videos/tiklos.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="card-body p-4">
+                            <h4 class="card-title text-uppercase fw-bold">Tinikling</h4>
+                            <p class="card-text ">The national dance involving bamboo poles and agility.</p>
+                            <button class="btn btn-outline-light rounded-0 w-100 mt-2" onclick="openModal('Tinikling')">EXPLORE & WATCH</button>
+                        </div>
+                    </div>
+                </div>
+   
+                <div class="col-md-4">
+                    <div class="card-custom">
+                        <div class="card-img-wrapper">
+                            <img src="BERMUDEZJH_media/images/singkil.jpg" alt="Singkil">
+                        </div>
+                        <div class="card-body p-4">
+                            <h4 class="card-title text-uppercase fw-bold">Singkil</h4>
+                            <p class="card-text ">Royal Maranao dance telling the epic of Princess Gandingan.</p>
+                            <button class="btn btn-outline-light rounded-0 w-100 mt-2" onclick="openModal('Singkil')">EXPLORE & WATCH</button>
+                        </div>
+                    </div>
+                </div>
+     
+                <div class="col-md-4">
+                    <div class="card-custom">
+                        <div class="card-img-wrapper">
+                            <img src="BERMUDEZJH_media/images/maglalatik.jpg" alt="Maglalatik">
+                        </div>
+                        <div class="card-body p-4">
+                            <h4 class="card-title text-uppercase fw-bold">Maglalatik</h4>
+                            <p class="card-text ">War dance using coconut shells as percussion instruments.</p>
+                            <button class="btn btn-outline-light rounded-0 w-100 mt-2" onclick="openModal('Maglalatik')">EXPLORE & WATCH</button>
+                        </div>
+                    </div>
+                </div>
+             
+                <div class="col-md-4">
+                    <div class="card-custom">
+                        <div class="card-img-wrapper">
+                            <img src="BERMUDEZJH_media/images/ilaw.webp" alt="Pandanggo">
+                        </div>
+                        <div class="card-body p-4">
+                            <h4 class="card-title text-uppercase fw-bold">Pandanggo sa Ilaw</h4>
+                            <p class="card-text ">The dance of lights, balancing oil lamps on head and hands.</p>
+                            <button class="btn btn-outline-light rounded-0 w-100 mt-2" onclick="openModal('Pandanggo')">EXPLORE & WATCH</button>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="col-md-4">
+                    <div class="card-custom">
+                        <div class="card-img-wrapper">
+                            <img src="BERMUDEZJH_media/images/carino.webp" alt="Carinosa">
+                        </div>
+                        <div class="card-body p-4">
+                            <h4 class="card-title text-uppercase fw-bold">Cariñosa</h4>
+                            <p class="card-text ">Flirtatious courtship dance with fans and handkerchiefs.</p>
+                            <button class="btn btn-outline-light rounded-0 w-100 mt-2" onclick="openModal('Carinosa')">EXPLORE & WATCH</button>
+                        </div>
+                    </div>
+                </div>
+             
+                <div class="col-md-4">
+                    <div class="card-custom">
+                        <div class="card-img-wrapper">
+                            <img src="BERMUDEZJH_media/images/itik.jpg" alt="Itik-Itik" >
+                        </div>
+                        <div class="card-body p-4">
+                            <h4 class="card-title text-uppercase fw-bold">Itik-Itik</h4>
+                            <p class="card-text">Mimics the movements of a duck wading and swimming.</p>
+                            <button class="btn btn-outline-light rounded-0 w-100 mt-2" onclick="openModal('ItikItik')">EXPLORE & WATCH</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-5 mb-5">
+        <div class="card-custom p-0">
+            <div class="card-img-wrapper" style="height:420px;">
+           
+                <video id="ourTiklos" class="w-100 h-100" style="object-fit:cover" controls muted preload="metadata">
+                    <source src="BERMUDEZJH_media/videos/folkdance.MP4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="p-4 bg-dark">
+                <h3 class="text-uppercase text-white">Our Performance — Tiklos</h3>
+                
+                <p class="text-light mb-0">Tiklos is a traditional Visayan circle dance performed during celebrations and gatherings. It features graceful footwork and partner patterns performed in a linked circle, often accompanied by lively kundiman or folk tunes. The dance emphasizes community and cooperative movement, with a focus on rhythm and simple, elegant steps passed between participants.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fs-3 text-uppercase fw-bold" id="modalTitle">Dance Title</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="ratio ratio-16x9">
+                        <iframe id="modalVideo" src="" allowfullscreen title="Video player"></iframe>
+                    </div>
+                    <div class="p-5">
+                        <p id="modalDesc" class="lead text-light"></p>
+                        <hr class="border-secondary my-4">
+                        <h5 class="lead text-light" >History & Details</h5>
+                        <p id="modalHistory"class="lead text-light" ></p>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 bg-black">
+                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+   <div class="container-fluid">
+    <div class="bg-dark text-white text-center py-2 mt-8">Developed by: John Harley Bermudez</div>
+  </div>
+
+    <script src="rsc/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const placeholderVideo = "https://www.youtube.com/embed/playlist?list=PL8fVutRmjal_Y0WjXHw8wJd_KjJk7kG6C"; 
+
+        const danceData = {
+            'Tinikling': {
+                title: 'Tinikling',
+                video: 'https://youtu.be/kckR6wf5xe8?si=GCPt1uQtTY3UziXX',
+                desc: 'The Tinikling is considered by many to be the Philippines national dance. The dance mimics the movement of the tikling birds as they walk between grass stems, run over tree branches, or dodge bamboo traps set by rice farmers.',
+                history: 'Originating in Leyte during the Spanish colonial era, legend says it was a punishment for workers who worked too slowly, but it evolved into a test of skill and agility. Dancers skip in and out of beating bamboo poles.'
+            },
+            'Singkil': {
+                title: 'Singkil',
+                video: 'https://www.youtube.com/watch?v=8qJdZcM3QEs', 
+                desc: 'A royal dance of the Maranao people of Lake Lanao.',
+                history: 'It narrates the epic legend of "Darangen". The dance mimics the Princess Gandingan as she gracefully dodges the trees (bamboo poles) falling around her during an earthquake caused by the diwatas (spirits).'
+            },
+            'Maglalatik': {
+                title: 'Maglalatik',
+                video: 'https://www.youtube.com/watch?v=bTQFnNtwuM4',
+                desc: 'An indigenous war dance from Biñan, Laguna.',
+                history: 'The dance depicts a fight between the Moros and the Christians over the prized latik (coconut meat residue). Dancers wear coconut shells secured to their bodies and hit them rhythmically.'
+            },
+            'Pandanggo': {
+                title: 'Pandanggo sa Ilaw',
+                video: 'https://youtu.be/Wu8XqO0knYg?si=8aFvoyMU_B39KMER',
+                desc: 'A dance of lights originating from Mindoro.',
+                history: 'The word "pandanggo" comes from the Spanish "fandango". Dancers balance three oil lamps (tinghoy)—one on the head and one in each hand—while maneuvering through difficult steps.'
+            },
+            'Carinosa': {
+                title: 'Cariñosa',
+                video: 'https://www.youtube.com/watch?v=QKEyBmk6D_g&utm_source=chatgpt.com',
+                desc: 'Meaning "Lovable" or "Affectionate".',
+                history: 'This dance dates back to the Spanish colonial period. It portrays the shy courtship between a man and a woman using props like a fan and a handkerchief to play hide-and-seek.'
+            },
+            'ItikItik': {
+                title: 'Itik-Itik',
+                video: 'https://www.youtube.com/watch?v=tFtdmVepMcI',
+                desc: 'A mimetic dance from Surigao del Norte.',
+                history: 'Legend says a woman named Kanang was the best dancer at a baptismal party. She got so carried away she started improvising steps imitating a duck (itik). The people liked it so much they copied her.'
+            }
+        };
+
+        function getEmbedUrl(url) {
+            if(!url) return '';
+        
+            if(url.includes('youtube.com/embed') || url.includes('youtube.com/playlist') || url.includes('youtube.com/embed/videoseries')) return url;
+            try {
+                const u = new URL(url);
+             
+                if(u.hostname.includes('youtu.be')) {
+                    const id = u.pathname.replace(/^\//, '');
+                    return 'https://www.youtube.com/embed/' + id;
+                }
+                if(u.hostname.includes('youtube.com')) {
+                   
+                    if(u.searchParams.has('list')) return 'https://www.youtube.com/embed/videoseries?list=' + u.searchParams.get('list');
+                    if(u.searchParams.has('v')) return 'https://www.youtube.com/embed/' + u.searchParams.get('v');
+                }
+            } catch(e) {
+          
+                const m = url.match(/(?:youtu\.be\/|v=|embed\/)([A-Za-z0-9_-]{6,})/);
+                if(m) return 'https://www.youtube.com/embed/' + m[1];
+            }
+            return url;
+        }
+
+        function openModal(key) {
+            const data = danceData[key];
+            if(data) {
+                document.getElementById('modalTitle').innerText = data.title;
+                document.getElementById('modalVideo').src = getEmbedUrl(data.video);
+                document.getElementById('modalDesc').innerText = data.desc;
+                document.getElementById('modalHistory').innerText = data.history;
+                const myModal = new bootstrap.Modal(document.getElementById('infoModal'));
+                myModal.show();
+            }
+        }
+    </script>
+</body>
+</html>
